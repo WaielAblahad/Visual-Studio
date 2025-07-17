@@ -1,0 +1,68 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "My Music Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>My Favorite Song</title>
+<style>
+    body {
+    background-color: #0e0e0f;
+    color: #ffffff;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+.video-container {
+    margin: 20px auto;
+    width: fit-content;
+}
+
+.animated-box {
+    width: 50px;
+    height: 50px;
+    background-color: #ff4081;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 40px auto;
+    animation: bounce 2s infinite;
+}
+
+@@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+    100% { transform: translateY(0); }
+}
+
+</style>
+</head>
+<body>
+    <div class="main-container">
+        <h1>🎶 Welcome to My Music Page 🎶</h1>
+        <p>Here's one of my favorite songs:</p>
+        <div class="video-container">
+            <iframe width="915" height="514" src="https://www.youtube.com/embed/IWKyykQBRKo" title="Billie Eilish - WILDFLOWER (BILLIE BY FINNEAS)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="animated-box" id="box">🎵</div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const box = document.getElementById("box");
+    box.addEventListener("mouseenter", () => {
+        box.style.transition = "transform 1s";
+        box.style.transform = "rotate(360deg)";
+    });
+    box.addEventListener("mouseleave", () => {
+        box.style.transform = "rotate(0deg)";
+    });
+});
+
+    </script>
+</body>
+</html>
